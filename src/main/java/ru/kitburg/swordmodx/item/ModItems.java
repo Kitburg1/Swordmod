@@ -3,13 +3,11 @@ package ru.kitburg.swordmodx.item;
 
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.SwordItem;
-import net.minecraft.world.item.Tier;
-import net.minecraft.world.item.Tiers;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentEffectComponents;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.SimpleTier;
@@ -45,13 +43,16 @@ public class ModItems {
             () -> Ingredient.of(Tags.Items.RODS_BLAZE)
     );
 
-
-
     public static final Supplier<SwordItem> FIRESWORD = ITEMS.register("firesword", () -> new SwordItem(
             // The tier to use.
+
             FIRE_TIER,
-            // The item properties. We don't need to set the durability here because TieredItem handles that for us.
-            new Item.Properties().attributes(
+
+
+        // The item properties. We don't need to set the durability here because TieredItem handles that for us.
+            new Item.Properties()
+                    .fireResistant()
+                    .attributes(
                     // There are `createAttributes` methods in either the class or subclass of each DiggerItem
                     SwordItem.createAttributes(
                             // The tier to use.
@@ -60,7 +61,7 @@ public class ModItems {
                             8,
                             // The type-specific attack speed modifier. The player has a default attack speed of 4, so to get to the desired
                             // value of 1.6f, we use -2.4f. -2.4f for swords, -3f for shovels, -2.8f for pickaxes, varying for axes and hoes.
-                            -2.4f
+                            -3.4f
 
                             )
 
@@ -68,9 +69,17 @@ public class ModItems {
             )
     ));
 
-
-
-    public static void register(IEventBus eventBus) {
-        ITEMS.register(eventBus);
+    public static final Supplier<Item> FIRE_INGOT = ITEMS.register("fire_ingot", () -> new Item(new Item.Properties()));
+    public static final Supplier<Item> NETHERITE_NUGGETS = ITEMS.register("netherite_nuggets", () -> new Item(new Item.Properties()));
+    public static final Supplier<Item> MAGMA_INGOT = ITEMS.register("magma_ingot", () -> new Item(new Item.Properties()));
+    public boolean isRepairable(ItemStack stack) {
+        return true; // Позволяет ремонт и чарование
     }
+    public boolean isEnchantable(ItemStack stack) {
+        return true; // Указывает, что предмет можно чарить
+    }
+
+//    public static void register(IEventBus eventBus) {
+//        ITEMS.register(eventBus);
+//    }
 }

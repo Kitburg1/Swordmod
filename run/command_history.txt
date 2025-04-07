@@ -1,3 +1,10 @@
 /recipe give @p swordmodx:fire_sword
 /give Dev swordmodx:firesword
 /summon minecraft:wither
+/give Dev swordmodx:fire_ingot
+/recipe give Dev swordmodx
+/recipe give Dev swordmodx:firesword
+/recipe give Dev firesword
+/give Dev swordmodx:netherite_nuggets
+/give Dev swordmodx:fire_ingot
+/locate structure minecraft:end_city

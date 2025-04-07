@@ -1,3 +1,7 @@
 {
-  "item.swordmodx.firesword": "Пламенный меч"
+  "item.swordmodx.firesword": "Пламенный меч",
+  "item.swordmodx.fire_ingot": "Пламенный слиток",
+  "item.swordmodx.netherite_nuggets": "Незеритовый самародок",
+  "item.swordmodx.magma_ingot": "Магмовый слиток",
+  "block.swordmodx.fire_block": "Пламенный блок"
 }
